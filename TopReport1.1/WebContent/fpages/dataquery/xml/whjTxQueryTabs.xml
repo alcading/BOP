@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 用于多tab页面的模板查询 -->
+<CommQry title="银行卡境外交易数据" navigate="银行卡境外交易提现明细数据&gt; 银行卡境外交易消费明细数据">
+	<Include id="BankTabs" />
+	<Fields></Fields>
+	<Where></Where>
+	<Operations>
+		<Button id="WhjTxQuery" name="WhjTxQuery" desc="境外提现明细查询"
+			url="/fpages/dataquery/ftl/WhjTxQuery.ftl" show="0" group="o"
+			txn="" />
+			
+		<Button id="WhjXfQuery" name="WhjXfQuery" desc="境外消费明细查询"
+			url="/fpages/dataquery/ftl/WhjXfQuery.ftl" show="0" group="o"
+			txn="" />
+		<Button id="WhjSendQuery" name="WhjSendQuery" desc="接口文件发送信息"
+			url="/fpages/dataquery/ftl/WhjSendQuery.ftl" show="0" group="o"
+			txn="" />
+	</Operations>
+	<Sql></Sql>
+	<Script></Script>
+</CommQry>

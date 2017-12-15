@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CommQry title="境外违规交易" navigate="主页 &gt; 数据查询&gt; 反馈数据" type="call"
+	interface="true" pagesize="10" async="true" databusid=""
+	transdataactionurl="/trans/TransDataAction.do"
+	getterclassname="com.huateng.report.dataquery.getter.WhjWgjyQueryGetter">
+	<Include id="BankParam" />
+	<PageQryExp type="XLS" limit="true" encoding="GBK" url="/trans/qryExp.do" desc="境外违规交易"/>
+	<Fields>
+		<!-- status :F-基本信息中显示  N-不显示 D-详细信息中显示 A-基本、详细信息中都显示  -->
+		<!-- primary : true-作为表单项记录上传　false-不作为表单项上传 -->
+		<!-- 日志信息 -->
+		<Field id="id" desc="记录主键" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="32" status="N" default="" primary="true" xpath="/id" />
+	 	<Field id="certTypeCode" desc="持卡人证件类型" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="8" status="F" default="" xpath="/certTypeCode" />
+	 	  <Field id="ptyCountryCode" desc="持卡人国家地区" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="8" status="F" default="" xpath="/ptyCountryCode" />
+
+		<Field id="idCode" desc="持卡人证件号码" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="128" status="F" default="" xpath="/idCode" />
+	 	  
+		
+	</Fields>
+	<Where>
+
+		<DateTextBox id="startDate" desc="日期" tip="日期"
+			require="false" status="F" datatype="string" method="None" size="150"
+			width="" primary="false" index="2" type="String" />
+	</Where>
+	<Operations>
+
+
+	</Operations>
+</CommQry>

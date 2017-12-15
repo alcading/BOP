@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CommQry title="数据错误反馈信息" navigate="主页 &gt; 数据查询&gt; 反馈数据" type="call"
+	interface="true" pagesize="10" async="true" databusid=""
+	transdataactionurl="/trans/TransDataAction.do"
+	getterclassname="com.huateng.report.dataquery.getter.WhjWgQueryGetter">
+	<Include id="BankParam" />
+	<PageQryExp type="XLS" limit="true" encoding="GBK" url="/trans/qryExp.do" desc="数据错误反馈信息"/>
+	<Fields>
+		<!-- status :F-基本信息中显示  N-不显示 D-详细信息中显示 A-基本、详细信息中都显示  -->
+		<!-- primary : true-作为表单项记录上传　false-不作为表单项上传 -->
+		<!-- 日志信息 -->
+		<Field id="id" desc="记录主键" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="32" status="N" default="" primary="true" xpath="/id" />
+	 	<Field id="jgbs" desc="机构标识" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="4" status="F" default="" xpath="/jgbs" />
+	 	  <Field id="bussno" desc="业务参考号" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="4" status="F" default="" xpath="/bussno" />
+
+		<Field id="errfield" desc="字段英文名" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="128" status="F" default="" xpath="/errfield" />
+	 	  <Field id="errfieldcn" desc="字段中文名" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="128" status="F" default="" xpath="/errfieldcn" />
+	 	  <Field id="errdesc" desc="错误信息描述" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="128" status="F" default="" xpath="/errdesc" />
+
+		<Field id="filenameFs" desc="发送文件名" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="128" status="F" default="" xpath="/filenameFs" />
+
+		<Field id="filenameFk" desc="反馈文件名" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="128" status="F" default="" xpath="/filenameFk" />
+	 	  
+	 	<Field id="rq" desc="日期" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="30" status="F" default="" xpath="/rq" />
+		
+	</Fields>
+	<Where>
+		<TextBox id="jgbs" type="String" operation="EQ" size="8"
+			desc="机构标识" tip="机构标识" index="0" />	
+		<DateTextBox id="startDate" desc="日期" tip="日期"
+			require="false" status="F" datatype="string" method="None" size="150"
+			width="" primary="false" index="2" type="String" />
+	</Where>
+	<Operations>
+
+
+	</Operations>
+</CommQry>

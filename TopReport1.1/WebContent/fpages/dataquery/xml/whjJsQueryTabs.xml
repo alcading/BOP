@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 用于多tab页面的模板查询 -->
+<CommQry title="反馈数据" navigate="格式错误反馈信息&gt; 数据错误反馈信息">
+	<Include id="BankTabs" />
+	<Fields></Fields>
+	<Where></Where>
+	<Operations>
+		<Button id="WhjJsQuery" name="WhjJsQuery" desc="格式错误反馈信息"
+			url="/fpages/dataquery/ftl/WhjJsQuery.ftl" show="0" group="o"
+			txn="" />
+			
+		<Button id="WhjWgQuery" name="WhjWgQuery" desc="数据错误反馈信息"
+			url="/fpages/dataquery/ftl/WhjWgQuery.ftl" show="0" group="o"
+			txn="" />
+		<Button id="WhjWgjyQuery" name="WhjWgjyQuery" desc="境外交易违规记录"
+			url="/fpages/dataquery/ftl/WhjWgjyQuery.ftl" show="0" group="o"
+			txn="" />
+	</Operations>
+	<Sql></Sql>
+	<Script></Script>
+</CommQry>

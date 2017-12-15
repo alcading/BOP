@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="resource.bean.pub">
+	<class
+		name="WhjSend"
+		table="WHJ_Send_INFO"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+		</id>
+
+		<property
+			name="wjm"
+			column="WJM"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="kzwjm"
+			column="KZWJM"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="scsj"
+			column="SCSJ"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="scjlbs"
+			column="SCJLBS"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="lx"
+			column="LX"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="bankCode"
+			column="BANKCODE"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		
+		<property
+			name="zt"
+			column="ZT"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+	</class>	
+</hibernate-mapping>

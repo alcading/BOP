@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  用于直接生成SQL语句，支持同步和异步提交 -->
+<!--  title:标题
+	navigate:导航信息
+	type:方式（sql|call)
+	interface:是否显示输入条件页面(true|false)
+	databusid:数据总线编号
+	transdataactionurl:数据整理URL
+	txnlogflag:true记录日志
+	async:异步提交标志
+	pagesize:页面显示记录数(缺省为10)
+-->
+
+<CommQry title="RouteManageEntry.title" navigate="系统维护  &gt; 路由信息维护"
+    type="call" interface = "false" pagesize="10" async="true" databusid=""
+    transdataactionurl="/trans/TransDataAction.do" txnlogflag="true"
+    getterclassname="com.huateng.ebank.business.management.getter.WhjBranchInfoQueryGetter" >
+<Include id="BankParam" />
+
+<PageQryExp type="XLS" limit="true" encoding="GBK" url="/trans/qryExp.do" desc="路由信息"/>
+<Fields>
+		<!-- status :F-基本信息中显示  N-不显示 D-详细信息中显示 A-基本、详细信息中都显示  -->
+		<!-- primary : true-作为表单项记录上传　false-不作为表单项上传 -->
+<!-- id,zdyhh,yljgdm,rhzfdm,whjjgdm,whjjgbs,whjdm,ftpip,ftpdir,ftpname,ftppwd,ftpport,zt,ftpbz -->
+      <Field id="id" desc="ID号" status="N" primary="false"
+			method="None" readonly="true" type="String" size="32" default=""
+			xpath="/id" require="false" tip="ID号" />
+			
+		<Field id="zdyhh" desc="自定义行号" status="F" primary="false"
+			method="None" readonly="false" edittype="text" size="5" require="false" 
+			errmsg="自定义行号不能为空！" datatype="string"   default=""
+			xpath="/zdyhh"  tip="自定义行号" />
+				
+		<Field id="yljgdm" desc="银联机构代码" status="F" primary="false"
+			method="None" readonly="false" edittype="text" size="8" require="false" 
+			errmsg="银联机构代码不能为空！" datatype="string"   default=""
+			xpath="/yljgdm"  tip="银联机构代码" />
+		
+	  <Field id="rhzfdm" desc="人行支付代码" status="F" primary="false"
+			method="None" readonly="false" edittype="text" size="12" require="false" 
+			errmsg="人行支付代码不能为空！" datatype="string"   default=""
+			xpath="/rhzfdm"  tip="人行支付代码" />
+			
+		<Field id="jgmc" desc="机构名称" status="F" 
+			method="com.huateng.ebank.business.common.CQMethod.getJgmcByJgbs"
+			width="" readonly="" primary="true" datatype="string" size="20"
+			xpath="/whjjgbs" default=""/>
+			
+			  <Field id="whjjgdm" desc="外汇局机构代码" status="F" primary="false"
+			method="None" readonly="false" edittype="text" size="12" require="true" 
+			errmsg="外汇局机构代码不能为空！" datatype="string"   default=""
+			xpath="/whjjgdm"  tip="外汇局机构代码" />
+			
+			  <Field id="whjjgbs" desc="外汇局机构标识" status="F" primary="false"
+			method="None" readonly="false" edittype="text" size="4" require="true" 
+			errmsg="外汇局机构标识不能为空！" datatype="string"   default=""
+			xpath="/whjjgbs"  tip="外汇局机构标识" />
+			
+			  <Field id="whjdm" desc="所属外汇局代码" status="F" primary="false"
+			method="None" readonly="false" edittype="text" size="6" require="true" 
+			errmsg="所属外汇局代码不能为空！" datatype="string"   default=""
+			xpath="/whjdm"  tip="所属外汇局代码" />
+			
+				  <Field id="ftpip" desc="FTPIP地址" status="F" primary="false"
+			method="None" readonly="false" edittype="text" size="20" require="true" 
+			errmsg="TPIP地址不能为空！" datatype="string"   default=""
+			xpath="/ftpip"  tip="FTPIP地址" />
+			
+			  <Field id="ftpdir" desc="FTP路径" status="F" primary="false"
+			method="None" readonly="false" edittype="text" size="50" require="true" 
+			errmsg="FTP路径不能为空！" datatype="string"   default=""
+			xpath="/ftpdir"  tip="FTP路径" />
+			
+				  <Field id="ftpname" desc="FTP用户名" status="F" primary="false"
+			method="None" readonly="false" edittype="text" size="20" require="true" 
+			errmsg="FTP用户名不能为空！" datatype="string"   default=""
+			xpath="/ftpname"  tip="FTP用户名" />
+			
+			  <Field id="ftppwd" desc="FTP密码" status="F" primary="false"
+			method="None" readonly="false" edittype="text" size="20" require="false" 
+			errmsg="FTP密码不能为空！" datatype="string"   default=""
+			xpath="/ftppwd"  tip="FTP密码" />
+			
+			<Field id="ftpport" desc="FTP端口" status="F" primary="false"
+			method="None" readonly="false" edittype="text" size="8" require="false" 
+			errmsg="FTP端口不能为空！" datatype="string"   default=""
+			xpath="/ftpport"  tip="FTP端口" />
+			
+			<Field id="zt" desc="是否有效" status="F" primary="false"
+			method="None" readonly="false" edittype="select"  size="1" require="true" 
+			errmsg="是否有效标识不能为空！" datatype="string"   default=""
+			xpath="/zt"  tip="是否有效" translated="LIST:1,1-有效;0,0-无效" />
+			
+			<Field id="ftpbz" desc="FTP标识1:FTP,2:SFTP" status="F" primary="false"
+			method="None" readonly="false" edittype="select"  size="1" require="true" 
+			errmsg="FTP标识不能为空！" datatype="string"   default=""
+			xpath="/ftpbz"  tip="FTP标识1:FTP,2:SFTP" translated="LIST:1,1-FTP;0,2-SFTP" />
+
+		<Field id="opr" desc="操作" edittype="text" datatype="string" xpath="/id" />
+
+</Fields>
+
+<Where >
+	<TextBox id="rwhjjgbs" desc="外汇局机构标识" datatype="string" index="1"/>
+</Where>
+
+<Operations>
+	<Button id="btNew" name="btNew" desc ="新增" operation="addrecord" url="#" show="" group="" txn="" icon="icon-add"/>/>
+	<Button id="btMod" name="btMod" desc="修改" operation="syncsubmit" url="#" show="" group="" txn="" />
+
+	<Button id="btDel" name="btDel" desc="删除"
+	         operation="asysubmit"
+	         updateClass="com.huateng.ebank.business.management.updater.RouteManageDelUpdate"
+	         url="/fpages/regonization/ftl/RouteManageEntry.ftl"  txn="" />
+
+	<Button id="btSave" name="btSave" desc="保存"
+			operation="asysubmit"
+			updateClass="com.huateng.ebank.business.management.updater.RouteManageUpdate"
+			url="/fpages/regonization/ftl/RouteManageEntry.ftl" txn="" />
+
+</Operations>
+	<Script></Script>
+ </CommQry>

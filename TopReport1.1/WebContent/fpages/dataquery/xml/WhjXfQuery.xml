@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CommQry title="银行卡境外交易数据" navigate="主页 &gt; 数据查询&gt; 银行卡境外交易数据" type="call"
+	interface="true" pagesize="10" async="true" databusid=""
+	transdataactionurl="/trans/TransDataAction.do"
+	getterclassname="com.huateng.report.dataquery.getter.WhjXfQueryGetter">
+	<Include id="BankParam" />
+	<PageQryExp type="XLS" limit="true" encoding="GBK" url="/trans/qryTx.do" desc="XF"/>
+	<Fields>
+		<!-- status :F-基本信息中显示  N-不显示 D-详细信息中显示 A-基本、详细信息中都显示  -->
+		<!-- primary : true-作为表单项记录上传　false-不作为表单项上传 -->
+		<!-- 日志信息 -->
+		<Field id="id" desc="记录主键" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="32" status="N" default="" primary="true" xpath="/id" />
+
+		<Field id="operTypeCode" desc="操作类型" require="" edittype="textarea" datatype="string" method="None"
+	 	  readonly="false" size="2" status="F" default="" xpath="/operTypeCode" />
+	 	<Field id="operTypeCodeS" desc="操作类型" status="N" require="false" edittype="select"
+			datatype="string" method="None" readonly="true" primary="true" 
+			translated="DATA_DIC.9005" size="2" default="" xpath="/operTypeCode" tip="" />
+	 	  
+	 	<Field id="reasonCode" desc="修改/删除原因" require="" edittype="textarea" datatype="string" method="None"
+	 	  readonly="false" size="128" status="F" default="" xpath="/reasonCode" />
+
+		<Field id="refNo" desc="业务参考号" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="27" status="F" default="" xpath="/refNo" />
+
+		<Field id="certTypeCode" desc="持卡人身份证件类型" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" primary="true"  size="20" status="F" 
+	 	  default="" xpath="/certTypeCode" tip="" />
+		<Field id="certTypeCodeS" desc="持卡人身份证件类型" status="N" require="false" edittype="select"
+			datatype="string" method="None" readonly="true" primary="true" 
+			translated="DATA_DIC.9001" size="30" default="" xpath="/certTypeCode" tip="" />
+			
+		<Field id="ptyCountryCode" desc="持卡人国家地区" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="3" status="F" default="" xpath="/ptyCountryCode" />
+	 	<Field id="ptyCountryCodeS" desc="持卡人国家地区" status="N" 
+			method="com.huateng.ebank.business.common.CQMethod.getNationregionIdName"
+			width="" readonly="" primary="true" datatype="string" size="3"
+			xpath="/ptyCountryCode" default=""/>
+
+		<Field id="idCode" desc="身份证件号码" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="128" status="F" default="" xpath="/idCode" />
+
+		<Field id="personName" desc="持卡人姓名" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="128" status="F" default="" xpath="/personName" />
+
+		<Field id="acctno" desc="卡号" require="" edittype="text" datatype="string" method="None"
+	 	  readonly="false" size="32" status="F" default="" xpath="/acctno" />
+
+		<Field id="jyCcyCode" desc="交易货币币种" require="" edittype="textarea" datatype="string" method="None"
+	 	  readonly="false" size="6" status="F" default="" xpath="/jyCcyCode" />
+	 	<Field id="jyCcyCodeS" desc="交易货币币种" status="N" 
+			method="com.huateng.ebank.business.common.CQMethod.getCurNameByCurNo"
+			width="" readonly="" primary="true" datatype="string" size="6"
+			xpath="/jyCcyCode" default=""/>
+	 	  
+		<Field id="jyAmt" desc="交易货币金额" require="" edittype="textarea" datatype="big_decimal" method="None"
+	 	  readonly="false" size="22" status="F" default="" xpath="/jyAmt" />
+	 	  
+	 	<Field id="qsAmtRmb" desc="交易货币折人民币金额" require="" edittype="textarea" datatype="big_decimal" method="None"
+	 	  readonly="false" size="22" status="F" default="" xpath="/qsAmtRmb" />
+	 	  
+	 	<Field id="mccCode" desc="MCC码" require="" edittype="textarea" datatype="string" method="None"
+	 	  readonly="false" size="4" status="F" default="" xpath="/mccCode" />
+	 	  
+	 	<Field id="cardTypeCode" desc="银行卡类型" require="" edittype="textarea" datatype="string" method="None"
+	 	  readonly="false" size="1" status="F" default="" xpath="/cardTypeCode" />
+	 	<Field id="cardTypeCodeS" desc="银行卡类型" status="N" require="false" edittype="select"
+			datatype="string" method="None" readonly="true" primary="true" 
+			translated="DATA_DIC.9002" size="30" default="" xpath="/cardTypeCode" tip="" />
+	 	  
+	 	<Field id="cardChnlCode" desc="银行卡清算渠道" require="" edittype="textarea" datatype="string" method="None"
+	 	  readonly="false" size="1" status="F" default="" xpath="/cardChnlCode" />
+	 	<Field id="cardChnlCodeS" desc="银行卡清算渠道" status="N" require="false" edittype="select"
+			datatype="string" method="None" readonly="true" primary="true" 
+			translated="DATA_DIC.9003" size="30" default="" xpath="/cardChnlCode" tip="" />
+	 	  
+	 	<Field id="bankCode" desc="发卡行金融机构代码" require="" edittype="textarea" datatype="string" method="None"
+	 	  readonly="false" size="4" status="F" default="" xpath="/bankCode" />
+	 	  
+	 	<Field id="branchSafecode" desc="发卡网点所在外汇局代码" require="" edittype="textarea" datatype="string" method="None"
+	 	  readonly="false" size="6" status="F" default="" xpath="/branchSafecode" />
+	 	  
+	 	<Field id="bizDealTime" desc="交易授权日期及时间" require="" edittype="textarea" datatype="string" method="None"
+	 	  readonly="false" size="30" status="F" default="" xpath="/bizDealTime" />
+	 	  
+	 	<Field id="countryCode" desc="交易国家或地区" require="" edittype="textarea" datatype="string" method="None"
+	 	  readonly="false" size="3" status="F" default="" xpath="/countryCode" />
+	 	<Field id="countryCodeS" desc="交易国家或地区" status="N" 
+			method="com.huateng.ebank.business.common.CQMethod.getNationregionIdName"
+			width="" readonly="" primary="true" datatype="string" size="3"
+			xpath="/countryCode" default=""/>
+	 	  
+	 	<Field id="bankSelfNum" desc="银行内部流水号" require="" edittype="textarea" datatype="string" method="None"
+	 	  readonly="false" size="128" status="F" default="" xpath="/bankSelfNum" />
+	 	  
+	 	<Field id="cardSelfNum" desc="卡组织单号" require="" edittype="textarea" datatype="string" method="None"
+	 	  readonly="false" size="128" status="F" default="" xpath="/cardSelfNum" />
+	 	  
+		<Field id="shName" desc="商户名称" require="" edittype="textarea" datatype="string" method="None"
+	 	  readonly="false" size="128" status="F" default="" xpath="/shName" />
+	 	  
+	 	  <Field id="jyChnl" desc="商户类型" require="" edittype="textarea" datatype="string" method="None"
+	 	  readonly="false" size="1" status="F" default="" xpath="/jyChnl" />
+	 	
+	 	<Field id="jlzt" desc="记录状态" require="" edittype="textarea" datatype="string" method="None"
+	 	  readonly="false" size="1" status="N" default="" xpath="/jlzt" />
+	 	 <Field id="jlztS" desc="记录状态" status="N" require="false" edittype="select"
+			datatype="string" method="None" readonly="true" primary="true" 
+			translated="DATA_DIC.9006" size="30" default="" xpath="/jlzt" tip="" />
+		
+	</Fields>
+	<Where>
+		<TextBox id="acctno" type="String" operation="EQ" size="50"
+			desc="卡号" tip="卡号" index="0" />	
+		<TextBox id="personName" type="String" operation="EQ" size="50"
+			desc="持卡人姓名" tip="持卡人姓名" index="1" />
+		<DateTextBox id="startDate" desc="交易日期" tip="交易日期"
+			require="true" status="F" datatype="string" method="None" size="150"
+			width="" primary="false" index="2" type="String" />
+	</Where>
+	<Operations>
+
+
+	</Operations>
+</CommQry>

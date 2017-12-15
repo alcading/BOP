@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="resource.bean.pub">
+	<class
+		name="WhjFkGs"
+		table="WHJ_FK_GS"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+		</id>
+
+		<property
+			name="formaterrs"
+			column="FORMATERRS"
+			type="string"
+			not-null="false"
+			length="5"
+		/>
+		<property
+			name="formatdDesc"
+			column="FORMAT_DESC"
+			type="string"
+			not-null="false"
+			length="256"
+		/>
+		<property
+			name="filenameFs"
+			column="FILENAME_FS"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="filenameFk"
+			column="FILENAME_FK"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="jgdm"
+			column="JGDM"
+			type="string"
+			not-null="false"
+			length="12"
+		/>
+		<property
+			name="jgbs"
+			column="JGBS"
+			type="string"
+			not-null="false"
+			length="4"
+		/>
+		<property
+			name="rq"
+			column="RQ"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="jlzt"
+			column="JLZT"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		
+	</class>	
+</hibernate-mapping>
